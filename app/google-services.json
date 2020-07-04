@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "377242354532",
+    "firebase_url": "https://covid-monitoring-system.firebaseio.com",
+    "project_id": "covid-monitoring-system",
+    "storage_bucket": "covid-monitoring-system.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:377242354532:android:dc3d43fc424079d7fe7071",
+        "android_client_info": {
+          "package_name": "com.example.getthetrack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "377242354532-gtg7upcv1mvk92370d0m7qfq7846pfvg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.getthetrack",
+            "certificate_hash": "fea58332119f197f6c9f8386910c4d9f41a4b224"
+          }
+        },
+        {
+          "client_id": "377242354532-l1auagmkq9lg5dfi94kp2lbgsjm33elu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8yPwdhJ_QUxouKctbQErNJQskc8J4-eo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "377242354532-l1auagmkq9lg5dfi94kp2lbgsjm33elu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
