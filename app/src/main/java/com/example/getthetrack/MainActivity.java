@@ -63,8 +63,10 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(email.getText().toString().equals("") || pass.getText().toString().equals("")){
+                if(email.getText().toString().equals("") ){
                     email.setError("This Field is required");
+                }
+                else if(pass.getText().toString().equals("")){
                     pass.setError("This Field is required");
                 }
                 else{

@@ -11,12 +11,12 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:padding="8dp"
-        android:layout_height="60dp"
+        android:layout_marginTop="4dp"
+        android:layout_height="33dp"
         android:background="#FFFFFF"
         android:textAlignment="center"
         app:title="Patient Login"
-        app:titleTextColor="#F826AB" />
+        app:titleTextColor="#800080" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -48,8 +48,9 @@
                 android:layout_toRightOf="@+id/logoMain"
                 android:padding="7dp"
                 android:text="Covid19 Monitoring System"
-                android:textColor="#E12263"
-                android:textSize="18sp" />
+                android:textColor="#800080"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </RelativeLayout>
 
         <EditText
@@ -59,7 +60,7 @@
             android:layout_below="@+id/logoText"
             android:hint="Enter Email Id"
             android:padding="18dp"
-            android:textColorHint="#FF5F96" />
+            android:textColorHint="#800080" />
 
         <EditText
             android:id="@+id/password"
@@ -68,7 +69,7 @@
             android:layout_below="@+id/email"
             android:hint="Enter Password"
             android:padding="14dp"
-            android:textColorHint="#FF5F96"
+            android:textColorHint="#800080"
             android:inputType="textPassword"
             />
 
@@ -83,7 +84,7 @@
             android:layout_marginBottom="20dp"
             android:background="#1C82D3"
             android:text="Login As Patient"
-            android:textColor="#FF5F96"
+            android:textColor="#80E885"
             android:textSize="18sp"
             android:textStyle="bold" />
 
