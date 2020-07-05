@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarhome"
+        android:layout_width="match_parent"
+        android:layout_marginTop="4dp"
+        android:layout_height="33dp"
+        android:background="#FFFFFF"
+        android:textAlignment="center"
+        app:title="Covid19 Monitoring System"
+        app:titleTextColor="#800080" />
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:padding="10dp"
+        android:layout_below="@+id/toolbarhome"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="false"
+        android:layout_centerHorizontal="false"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:textAlignment="textStart"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#A5A5A5"
+            >
+        <TextView
+            android:id="@+id/rr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="Respiratory Rate"
+            android:textColor="#0B0909"
+            android:textStyle="bold"
+            android:layout_toLeftOf="@+id/searchrr"
+            />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxWidth="42dp"
+                android:scaleType="fitCenter"
+                android:maxHeight="42dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/search"
+                android:id="@+id/searchrr"
+                />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/rrData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#D8D8D8"
+            android:text="@string/fetching"
+            android:layout_marginBottom="10dp"
+            android:padding="8dp"
+
+            />
+
+<RelativeLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content">
+        <TextView
+            android:textStyle="bold"
+            android:textColor="#0B0909"
+
+            android:id="@+id/spo2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Oxygen Saturation"
+            android:background="#A5A5A5"
+            android:padding="8dp"
+            />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:maxWidth="42dp"
+        android:scaleType="fitCenter"
+        android:maxHeight="42dp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/search"
+        android:id="@+id/searchspo2"
+        />
+</RelativeLayout>
+
+        <TextView
+            android:layout_marginBottom="10dp"
+            android:padding="8dp"            android:id="@+id/spo2Data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#D8D8D8"
+            android:text="@string/fetching"
+
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:textStyle="bold"
+            android:id="@+id/heartrate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#A5A5A5"
+            android:textColor="#0B0909"
+
+            android:padding="8dp"
+            android:text="Heart Rate" />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxWidth="42dp"
+                android:scaleType="fitCenter"
+                android:maxHeight="42dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/search"
+                android:id="@+id/searchhr"
+                />
+        </RelativeLayout>
+        <TextView
+            android:background="#D8D8D8"
+            android:layout_marginBottom="10dp"
+            android:padding="8dp"  android:id="@+id/heartrateData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/fetching" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/bp"
+            android:layout_width="match_parent"
+            android:padding="8dp"
+            android:textStyle="bold"
+            android:background="#A5A5A5"
+            android:textColor="#0B0909"
+
+            android:layout_height="wrap_content"
+            android:text="Blood Pressure" />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxWidth="42dp"
+                android:scaleType="fitCenter"
+                android:maxHeight="42dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/search"
+                android:id="@+id/searchbp"
+                />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/bpData"
+            android:layout_width="match_parent"
+            android:background="#D8D8D8"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:padding="8dp"     android:text="@string/fetching" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:background="#A5A5A5"
+            android:id="@+id/avpu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textStyle="bold"
+            android:textColor="#0B0909"
+            android:text="AVPU" />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxWidth="42dp"
+                android:scaleType="fitCenter"
+                android:maxHeight="42dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/search"
+                android:id="@+id/searchAVPU"
+                />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/avpuData"
+            android:background="#D8D8D8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/fetching"
+            android:layout_marginBottom="10dp"
+            android:padding="8dp"
+            />
+    </LinearLayout>
+</RelativeLayout>
