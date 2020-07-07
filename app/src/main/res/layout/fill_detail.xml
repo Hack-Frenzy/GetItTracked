@@ -1,6 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarhome"
+        android:layout_width="match_parent"
+        android:layout_marginTop="4dp"
+        android:layout_height="33dp"
+        android:background="#FFFFFF"
+        android:textAlignment="center"
+        app:title="Covid19 Monitoring System"
+        app:titleTextColor="#800080" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/headingData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#A3A3A3"
+        android:padding="10dp"
+        android:layout_margin="7dp"
+        android:text=""
+        android:textColor="#000000" />
+
+    <EditText
+        android:id="@+id/fillData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:background="#DCD9D9"
+        android:padding="10dp"
+        android:textColor="#000000" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#AC43DA"
+        android:id="@+id/submit"
+        android:text="Submit" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/relateimage"
+        android:maxHeight="100dp"
+        android:maxWidth="100dp"
+        />
+
+    <TextView
+        android:id="@+id/extraInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="#FFFFFF"
+        android:padding="10dp" />
+</LinearLayout>
+</ScrollView>
