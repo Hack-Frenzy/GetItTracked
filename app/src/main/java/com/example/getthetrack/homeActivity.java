@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -31,6 +32,7 @@ public class homeActivity extends AppCompatActivity {
     DatabaseReference myRefpathit;
     allData Alldata;
     FirebaseDatabase database;
+    ImageButton brr,bspo2,bhr,bavpu,bbp;
     passData Data ;
     int setter=0;
     Thread thread;
@@ -47,7 +49,54 @@ public class homeActivity extends AppCompatActivity {
         hr = findViewById(R.id.heartrateData);
         bp = findViewById(R.id.bpData);
         avpu = findViewById(R.id.avpuData);
+
+        brr = findViewById(R.id.searchrr);
+        bbp =findViewById(R.id.searchbp);
+        bspo2 = findViewById(R.id.searchspo2);
+        bhr =findViewById(R.id.searchhr);
+        bavpu = findViewById(R.id.searchAVPU);
+
         //Click listeners
+        brr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(homeActivity.this, dialogue_fragment.class);
+                intent.putExtra("message","rr");
+                startActivity(intent);
+            }
+        });
+        bavpu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(homeActivity.this, dialogue_fragment.class);
+                intent.putExtra("message","avpu");
+                startActivity(intent);
+            }
+        });
+        bbp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(homeActivity.this, dialogue_fragment.class);
+                intent.putExtra("message","bp");
+                startActivity(intent);
+            }
+        });
+        bhr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(homeActivity.this, dialogue_fragment.class);
+                intent.putExtra("message","pulse");
+                startActivity(intent);
+            }
+        });
+        bspo2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(homeActivity.this, dialogue_fragment.class);
+                intent.putExtra("message","spo2");
+                startActivity(intent);
+            }
+        });
         rr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
