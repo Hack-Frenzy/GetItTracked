@@ -1,32 +1,87 @@
 package com.example.getthetrack;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class dialogue_fragment extends DialogFragment {
-    @NonNull
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+public class dialogue_fragment extends AppCompatActivity {
+    FirebaseDatabase database ;
+    DatabaseReference myRef;
+    ListView listView;
+    String[] tionData = new  String[50];
+    String[] ansData = new  String[50];
+    Thread machax;
+    int i=0;
+
     @Override
-    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        // Get the layout inflater
-        LayoutInflater inflater = requireActivity().getLayoutInflater();
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.dialogue_fragment);
+        Bundle bundle = getIntent().getExtras();
+        String message;
+        //rr ya spo2 ys ..
+        message = bundle.getString("message");
+        database = FirebaseDatabase.getInstance();
+        listView = findViewById(R.id.list);
+        myRef = database.getReference().child("Data").child(message);
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                i=0;
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    anstion dataget = snapshot.getValue(anstion.class);
+                    tionData[i]=dataget.qq;
+                    ansData[i] = dataget.ans;
+                    i++;
+                }
+                machax.run();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+       machax = new Thread(new Runnable() {
+           @Override
+           public void run() {
+            adapter ouradapter = new adapter(getApplicationContext(),tionData,ansData);
+            listView.setAdapter(ouradapter);
+           }
+       });
+    }
+}
+class anstion{
+    String ans, qq;
 
-        // Inflate and set the layout for the dialog
-        // Pass null as the parent view because its going in the dialog layout
-        builder.setView(inflater.inflate(R.layout.dialogue_fragment, null))    // Add action buttons
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int id) {
+    public anstion() {
+    }
 
-                    }
-                });
-        return super.onCreateDialog(savedInstanceState);
+    public anstion(String ans, String qq) {
+        this.ans = ans;
+        this.qq = qq;
+    }
+
+    public String getAns() {
+        return ans;
+    }
+
+    public void setAns(String ans) {
+        this.ans = ans;
+    }
+
+    public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq;
     }
 }
