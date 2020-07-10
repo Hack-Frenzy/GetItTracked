@@ -17,8 +17,8 @@ public class dialogue_fragment extends AppCompatActivity {
     FirebaseDatabase database ;
     DatabaseReference myRef;
     ListView listView;
-    String[] tionData = new  String[50];
-    String[] ansData = new  String[50];
+    String[] tionData = new  String[6];
+    String[] ansData = new  String[6];
     Thread machax;
     int i=0;
 
