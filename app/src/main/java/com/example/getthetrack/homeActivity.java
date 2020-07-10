@@ -24,7 +24,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.Future;
 
 public class homeActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -49,7 +48,6 @@ public class homeActivity extends AppCompatActivity {
         hr = findViewById(R.id.heartrateData);
         bp = findViewById(R.id.bpData);
         avpu = findViewById(R.id.avpuData);
-
         brr = findViewById(R.id.searchrr);
         bbp =findViewById(R.id.searchbp);
         bspo2 = findViewById(R.id.searchspo2);
@@ -57,6 +55,7 @@ public class homeActivity extends AppCompatActivity {
         bavpu = findViewById(R.id.searchAVPU);
 
         //Click listeners
+
         brr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

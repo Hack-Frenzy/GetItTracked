@@ -30,6 +30,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     Button login;
+    Button signup;
     EditText email,pass;
     TextView additional;
     private FirebaseAuth mAuth;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         login = findViewById(R.id.loginButton);
         login.setEnabled(false);
+        signup = findViewById(R.id.signupbut);
         login.setBackgroundColor(Color.rgb(255,255,255));
         email = findViewById(R.id.email);
         pass = findViewById(R.id.password);
@@ -51,6 +53,15 @@ public class MainActivity extends AppCompatActivity {
             MainActivity.this.startActivity(myIntent);
             finish();
         }
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, signup.class);
+                Log.i("iiop","iio");
+                startActivity(intent);
+                Log.i("iio","iio");
+            }
+        });
         email.setOnTouchListener(new View.OnTouchListener() {
             @SuppressLint("ClickableViewAccessibility")
             @Override
