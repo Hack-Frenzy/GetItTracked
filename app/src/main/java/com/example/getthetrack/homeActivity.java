@@ -165,6 +165,11 @@ public class homeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        rr.setEnabled(false);
+        spo2.setEnabled(false);
+        hr.setEnabled(false);
+        avpu.setEnabled(false);
+        bp.setEnabled(false);
         mAuth = FirebaseAuth.getInstance();
         final FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser==null){
@@ -236,6 +241,11 @@ public class homeActivity extends AppCompatActivity {
                         spo2.setText(String.valueOf(Alldata.spo2));
                         hr.setText(String.valueOf(Alldata.heartrate));
                         avpu.setText(String.valueOf((Alldata.avpu)));
+                        rr.setEnabled(true);
+                        spo2.setEnabled(true);
+                        hr.setEnabled(true);
+                        avpu.setEnabled(true);
+                        bp.setEnabled(true);
                     }
                     @Override
                     public void onCancelled(DatabaseError error) {

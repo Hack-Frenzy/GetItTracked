@@ -13,5 +13,6 @@ public class profile extends AppCompatActivity {
         /*
         Make Patients profiles, from here he can edit his profile
             */
+
     }
 }
