@@ -1,38 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    >
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    android:fillViewport="true"
+    android:layout_height="match_parent">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="4dp"
-        android:layout_height="33dp"
-        android:background="#FFFFFF"
-        android:textAlignment="center"
-        app:title="Patient Login"
-        app:titleTextColor="#800080" />
-
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center|clip_vertical|center_horizontal|center_vertical"
-        android:foregroundGravity="center_vertical|center|center_horizontal"
-        android:gravity="center|center_horizontal|center_vertical"
+        android:id="@+id/heading"
         >
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_marginTop="4dp"
+            android:layout_height="33dp"
+            android:background="#FFFFFF"
+            android:textAlignment="center"
+            app:title="Patient Login"
+            app:titleTextColor="#800080"
+            android:layout_marginBottom="40dp"
+            />
         <RelativeLayout
             android:layout_marginBottom="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:id="@+id/logoText"
+            android:layout_below="@id/toolbar"
+
             >
         <ImageView
             android:layout_width="60dp"
@@ -95,6 +96,17 @@
             android:layout_below="@+id/loginButton"
             android:padding="15dp"
             android:textColor="#F30000" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:text="Sign Up"
+            android:textColor="#972B88"
+            android:textSize="20sp"
+            android:layout_below="@id/additionalInfo"
+            android:layout_marginTop="40dp"
+            android:id="@+id/signupbut"
+            />
     </RelativeLayout>
-
-</RelativeLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="40dp"
+        android:background="#FFFFFF"
+        android:textAlignment="center"
+        app:title="Sign Up"
+        app:titleTextColor="#800080"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="I Am"
+            android:textAlignment="center"
+            android:textSize="35sp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/round"
+            android:text="A Postive Patient"
+            android:textColor="#8E0AA5"
+            android:id="@+id/positive"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/round"
+            android:text="One Who came in Contact of a Covid19 Positive Patient"
+            android:textColor="#8E0AA5"
+            android:id="@+id/contact"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/round"
+            android:text="In isolation Post-Covid19 Treatement"
+            android:textColor="#8E0AA5"
+            android:id="@+id/postcovid"
+            />
+    </LinearLayout>
+</RelativeLayout>
