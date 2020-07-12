@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -324,6 +323,50 @@ class allData{
         this.gender = gender;
         this.lastname = lastname;
         this.mews = mews;
+    }
+}
+class positivepost{
+    public  String name,phno,aadharno,age,bloodGroup,request;
+    public  long rr,spo2,avpu,mews,bp,heartrate;
+
+    public positivepost() {
+    }
+
+    public positivepost(String name, String phno, String aadharno, String age, String bloodGroup, String request, long rr, long spo2, long avpu, long mews, long bp, long heartrate) {
+        this.name = name;
+        this.phno = phno;
+        this.aadharno = aadharno;
+        this.age = age;
+        this.bloodGroup = bloodGroup;
+        this.request = request;
+        this.rr = rr;
+        this.spo2 = spo2;
+        this.avpu = avpu;
+        this.mews = mews;
+        this.bp = bp;
+        this.heartrate = heartrate;
+    }
+}
+class contactget{
+    public  String name,phno,aadharno,age,bloodGroup,request;
+    public  long rr,spo2,avpu,mews,bp,heartrate;
+
+    public contactget() {
+    }
+
+    public contactget(String name, String phno, String aadharno, String age, String bloodGroup, String request, long rr, long spo2, long avpu, long mews, long bp, long heartrate) {
+        this.name = name;
+        this.phno = phno;
+        this.aadharno = aadharno;
+        this.age = age;
+        this.bloodGroup = bloodGroup;
+        this.request = request;
+        this.rr = rr;
+        this.spo2 = spo2;
+        this.avpu = avpu;
+        this.mews = mews;
+        this.bp = bp;
+        this.heartrate = heartrate;
     }
 }
 class passData{
