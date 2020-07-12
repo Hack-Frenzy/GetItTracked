@@ -40,6 +40,7 @@ public class contact extends AppCompatActivity {
     FirebaseDatabase database;
     Thread spin;
     String request;
+
     private FirebaseAuth mAuth;
     String emailid,passget,phoneno,nameget,aadharget,ageget,bldgrpget,sympget;
     String[] hospitalname = new String[50];
@@ -83,7 +84,17 @@ public class contact extends AppCompatActivity {
                     myRef.child("age").setValue(ageget);
                     myRef.child("bloodGroup").setValue(bldgrpget);
                     myRef.child("symptoms").setValue(sympget);
+                    myRef.child("rr").setValue(0);
+                    myRef.child("spo2").setValue(0);
+                    myRef.child("avpu").setValue(0);
+                    myRef.child("bp").setValue(0);
+                    myRef.child("mews").setValue(0);
+                    myRef.child("heartrate").setValue(0);
+                    DatabaseReference myRefAccess = database.getReference().child("Access").child(user.getUid());
+                    myRefAccess.child("hospital").setValue("positive");
+                    myRefAccess.child("phno").setValue(Integer.parseInt(phoneno));
                     myRef.child("request").setValue(request);
+
 
                 }
             }
