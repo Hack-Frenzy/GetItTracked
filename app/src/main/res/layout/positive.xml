@@ -33,6 +33,7 @@
             android:layout_height="wrap_content"
             android:hint="phone no."
             android:id="@+id/phnopositive"
+            android:inputType="number"
             />
         <EditText
             android:layout_width="match_parent"
@@ -45,12 +46,14 @@
             android:layout_height="wrap_content"
             android:hint="Aadhaar no."
             android:id="@+id/aadharpositive"
+            android:inputType="number"
             />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Age"
             android:id="@+id/agepositive"
+            android:inputType="number"
             />
         <EditText
             android:layout_width="match_parent"

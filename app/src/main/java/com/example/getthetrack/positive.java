@@ -108,6 +108,15 @@ public class positive extends AppCompatActivity {
                     myRef.child("age").setValue(ageget);
                     myRef.child("bloodGroup").setValue(bloodgrp);
                     myRef.child("request").setValue(reuest);
+                    myRef.child("rr").setValue(0);
+                    myRef.child("spo2").setValue(0);
+                    myRef.child("avpu").setValue(0);
+                    myRef.child("bp").setValue(0);
+                    myRef.child("mews").setValue(0);
+                    myRef.child("heartrate").setValue(0);
+                    DatabaseReference myRefAccess = database.getReference().child("Access").child(user.getUid());
+                    myRefAccess.child("hospital").setValue("positive");
+                    myRefAccess.child("phno").setValue(Integer.parseInt(phnoget));
                     uploadImage();
                 }
             }

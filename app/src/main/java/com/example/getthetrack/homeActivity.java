@@ -253,7 +253,7 @@ public class homeActivity extends AppCompatActivity {
                 });
             }
         });
-        myRef.child("Access/").child(uid).addValueEventListener(new ValueEventListener() {
+        myRef.child("Access").child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
