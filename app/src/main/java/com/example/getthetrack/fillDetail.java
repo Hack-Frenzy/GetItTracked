@@ -38,11 +38,23 @@ public class fillDetail extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         String[] message;
             message = bundle.getStringArray("message");
+            //message[2] = hospitalname
+        //message[1] = phone no
+        //message[0] = rr or spo2
+        //message[3] = previous value
             Log.i("tag",message[0].toString()+message[1]+message[2]+message[3]);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
          String[] value = new String[2];
-        String pathit="Patients/"+message[2]+"/"+message[1]+"/"+message[0];
-        Log.i("tag",pathit);
+        String pathit;
+         if(message[2].equals("positive") || message[2].equals("contact") || message[2].equals("postcovid"))
+        {
+            pathit=message[2]+"/"+mAuth.getCurrentUser().getUid()+"/"+message[0];
+        }
+         else
+         {
+              pathit="Patients/"+message[2]+"/"+message[1]+"/"+message[0];
+         }
+             Log.i("tag",pathit);
         myRefpathit = database.getReference(pathit);
         // Read from the database
         final String[] valuepathit = new String[1];

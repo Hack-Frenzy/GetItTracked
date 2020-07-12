@@ -116,7 +116,7 @@ public class positive extends AppCompatActivity {
                     myRef.child("heartrate").setValue(0);
                     DatabaseReference myRefAccess = database.getReference().child("Access").child(user.getUid());
                     myRefAccess.child("hospital").setValue("positive");
-                    myRefAccess.child("phno").setValue(Integer.parseInt(phnoget));
+                    myRefAccess.child("phno").setValue(Integer.valueOf(phnoget));
                     uploadImage();
                 }
             }
