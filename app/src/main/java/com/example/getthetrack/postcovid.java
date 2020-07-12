@@ -112,7 +112,7 @@ public class postcovid extends AppCompatActivity {
                     myRef.child("heartrate").setValue(0);
                     DatabaseReference myRefAccess = database.getReference().child("Access").child(user.getUid());
                     myRefAccess.child("hospital").setValue("postcovid");
-                    myRefAccess.child("phno").setValue(Integer.parseInt(phNoget));
+                    myRefAccess.child("phno").setValue(Integer.valueOf(phNoget));
                 }
             }
         });
@@ -169,7 +169,7 @@ public class postcovid extends AppCompatActivity {
                 // whenever data at this location is updated.
                 int i = 0;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    hospiinfois hos = snapshot.getValue(hospiinfois.class);
+                    hospiinfoispos hos = snapshot.getValue(hospiinfoispos.class);
                     hospiname[i] = hos.name + " (" + hos.address + ")";
                     str.add(hos.name +" (" + hos.address+" )");
                     i++;
@@ -323,16 +323,16 @@ public class postcovid extends AppCompatActivity {
         }
     }
 }
-    class hospiinfois {
+    class hospiinfoispos {
         public String name,email,address;
         long regno;
-        public hospiinfois(String name, String email, long regno, String address) {
+        public hospiinfoispos(String name, String email, long regno, String address) {
             this.name = name;
             this.email = email;
             this.regno = regno;
             this.address = address;
         }
-        public hospiinfois() {
+        public hospiinfoispos() {
         }
         public String getName() {
             return name;

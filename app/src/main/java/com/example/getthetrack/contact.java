@@ -92,7 +92,7 @@ public class contact extends AppCompatActivity {
                     myRef.child("heartrate").setValue(0);
                     DatabaseReference myRefAccess = database.getReference().child("Access").child(user.getUid());
                     myRefAccess.child("hospital").setValue("positive");
-                    myRefAccess.child("phno").setValue(Integer.parseInt(phoneno));
+                    myRefAccess.child("phno").setValue(Integer.valueOf(phoneno));
                     myRef.child("request").setValue(request);
 
 
@@ -146,7 +146,7 @@ public class contact extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 int i=0;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                   hospiinfois hos = snapshot.getValue(hospiinfois.class);
+                    hospiinfoiscon hos = snapshot.getValue(hospiinfoiscon.class);
                    hospitalname[i]=hos.name + " (" + hos.address+ " )";
                     str.add(hos.name +" (" + hos.address+" )");
                    i++;
@@ -181,16 +181,16 @@ public class contact extends AppCompatActivity {
     }
     }
 
-class hospiinfois {
+class hospiinfoiscon {
     public String name,email,address;
     long  regno;
-    public hospiinfois(String name, String email, long  regno, String address) {
+    public hospiinfoiscon(String name, String email, long  regno, String address) {
         this.name = name;
         this.email = email;
         this.regno = regno;
         this.address = address;
     }
-    public hospiinfois() {
+    public hospiinfoiscon() {
     }
     public String getName() {
         return name;

@@ -29,6 +29,8 @@ public class homeActivity extends AppCompatActivity {
     private Spinner spinner;
     DatabaseReference myRefpathit;
     allData Alldata;
+    positivepost datapost;
+    contactget datacon;
     FirebaseDatabase database;
     ImageButton brr,bspo2,bhr,bavpu,bbp;
     passData Data ;
@@ -104,7 +106,11 @@ public class homeActivity extends AppCompatActivity {
                 str[0]=Data.message;
                 str[1]=Data.phno;
                 str[2]=Data.hospital;
-                str[3] = String.valueOf(Alldata.rr);
+                if(rr.getText()!=null)
+                {str[3] = rr.getText().toString();}
+                else {
+                    str[3] = "";
+                }
                 intent.putExtra("message",str);
                 startActivity(intent);
             }
@@ -118,8 +124,11 @@ public class homeActivity extends AppCompatActivity {
                 str[0]=Data.message;
                 str[1]=Data.phno;
                 str[2]=Data.hospital;
-                str[3] = String.valueOf(Alldata.bp);
-                intent.putExtra("message",str);                startActivity(intent);
+                if(rr.getText()!=null)
+                {str[3] = bp.getText().toString();}
+                else {
+                    str[3] = "";
+                }                intent.putExtra("message",str);                startActivity(intent);
             }
         });
         avpu.setOnClickListener(new View.OnClickListener() {
@@ -131,8 +140,11 @@ public class homeActivity extends AppCompatActivity {
                 str[0]=Data.message;
                 str[1]=Data.phno;
                 str[2]=Data.hospital;
-                str[3] = String.valueOf(Alldata.avpu);
-                intent.putExtra("message",str);                startActivity(intent);
+                if(rr.getText()!=null)
+                {str[3] = avpu.getText().toString();}
+                else {
+                    str[3] = "";
+                }                intent.putExtra("message",str);                startActivity(intent);
             }
         });
         hr.setOnClickListener(new View.OnClickListener() {
@@ -144,8 +156,11 @@ public class homeActivity extends AppCompatActivity {
                 str[0]=Data.message;
                 str[1]=Data.phno;
                 str[2]=Data.hospital;
-                str[3] = String.valueOf(Alldata.heartrate);
-                intent.putExtra("message",str);
+                if(rr.getText()!=null)
+                {str[3] = hr.getText().toString();}
+                else {
+                    str[3] = "";
+                }                intent.putExtra("message",str);
                 startActivity(intent);
             }
         });
@@ -158,8 +173,11 @@ public class homeActivity extends AppCompatActivity {
                 str[0]=Data.message;
                 str[1]=Data.phno;
                 str[2]=Data.hospital;
-                str[3] = String.valueOf(Alldata.spo2);
-                intent.putExtra("message",str);
+                if(rr.getText()!=null)
+                {str[3] = spo2.getText().toString();}
+                else {
+                    str[3] = "";
+                }                intent.putExtra("message",str);
                 startActivity(intent);
             }
         });
@@ -223,7 +241,67 @@ public class homeActivity extends AppCompatActivity {
          thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                String pathit="Patients/"+valuefine[1]+"/"+valuefine[0];
+                if(valuefine[1].equals("positive") || valuefine[1].equals("postcovid")) {
+                    String pathit=valuefine[1]+"/"+mAuth.getCurrentUser().getUid();
+                    Data.hospital=valuefine[1];
+                    Data.phno=valuefine[0];
+                    Log.i("Yup",valuefine[1]+valuefine[0]);
+                    DatabaseReference myRefpathit = database.getReference();
+                    myRefpathit.child(pathit).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            // This method is called once with the initial value and again
+                            // whenever data at this location is updated.
+                            datapost = dataSnapshot.getValue(positivepost.class);
+                            rr.setText(String.valueOf(datapost.rr));
+                            bp.setText(String.valueOf(datapost.bp));
+                            spo2.setText(String.valueOf(datapost.spo2));
+                            hr.setText(String.valueOf(datapost.heartrate));
+                            avpu.setText(String.valueOf((datapost.avpu)));
+                            rr.setEnabled(true);
+                            spo2.setEnabled(true);
+                            hr.setEnabled(true);
+                            avpu.setEnabled(true);
+                            bp.setEnabled(true);
+                        }
+                        @Override
+                        public void onCancelled(DatabaseError error) {
+                            // Failed to read value
+                        }
+                    });
+                }
+                else if(valuefine[1].equals("contact")){
+                    String pathit=valuefine[1]+"/"+mAuth.getCurrentUser().getUid();
+                    Data.hospital=valuefine[1];
+                    Data.phno=valuefine[0];
+                    Log.i("Yup",valuefine[1]+valuefine[0]);
+                    DatabaseReference myRefpathit = database.getReference();
+                    myRefpathit.child(pathit).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            // This method is called once with the initial value and again
+                            // whenever data at this location is updated.
+                            datacon = dataSnapshot.getValue(contactget.class);
+                            rr.setText(String.valueOf(datacon.rr));
+                            bp.setText(String.valueOf(datacon.bp));
+                            spo2.setText(String.valueOf(datacon.spo2));
+                            hr.setText(String.valueOf(datacon.heartrate));
+                            avpu.setText(String.valueOf((datacon.avpu)));
+                            rr.setEnabled(true);
+                            spo2.setEnabled(true);
+                            hr.setEnabled(true);
+                            avpu.setEnabled(true);
+                            bp.setEnabled(true);
+                        }
+                        @Override
+                        public void onCancelled(DatabaseError error) {
+                            // Failed to read value
+                        }
+                    });
+                }
+                else
+                {
+                    String pathit="Patients/"+valuefine[1]+"/"+valuefine[0];
                 Data.hospital=valuefine[1];
                 Data.phno=valuefine[0];
                 Log.i("Yup",valuefine[1]+valuefine[0]);
@@ -249,7 +327,7 @@ public class homeActivity extends AppCompatActivity {
                     public void onCancelled(DatabaseError error) {
                         // Failed to read value
                     }
-                });
+                });}
             }
         });
         myRef.child("Access").child(uid).addValueEventListener(new ValueEventListener() {
@@ -258,7 +336,6 @@ public class homeActivity extends AppCompatActivity {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 duo Duo = dataSnapshot.getValue(duo.class);
-                Log.i("gol",dataSnapshot.getValue().toString());
                 valuefine[0] = String.valueOf(Duo.phno);
                 valuefine[1]= Duo.hospital;
                 Log.i("gol",valuefine[0]+valuefine[1]);
@@ -326,48 +403,20 @@ class allData{
     }
 }
 class positivepost{
-    public  String name,phno,aadharno,age,bloodGroup,request;
+    public  String name,phno,aadharno,age,bloodGroup,request,url;
     public  long rr,spo2,avpu,mews,bp,heartrate;
 
     public positivepost() {
     }
 
-    public positivepost(String name, String phno, String aadharno, String age, String bloodGroup, String request, long rr, long spo2, long avpu, long mews, long bp, long heartrate) {
-        this.name = name;
-        this.phno = phno;
-        this.aadharno = aadharno;
-        this.age = age;
-        this.bloodGroup = bloodGroup;
-        this.request = request;
-        this.rr = rr;
-        this.spo2 = spo2;
-        this.avpu = avpu;
-        this.mews = mews;
-        this.bp = bp;
-        this.heartrate = heartrate;
-    }
 }
 class contactget{
-    public  String name,phno,aadharno,age,bloodGroup,request;
+    public  String name,phno,aadharno,age,bloodGroup,request,symptoms;
     public  long rr,spo2,avpu,mews,bp,heartrate;
 
     public contactget() {
     }
 
-    public contactget(String name, String phno, String aadharno, String age, String bloodGroup, String request, long rr, long spo2, long avpu, long mews, long bp, long heartrate) {
-        this.name = name;
-        this.phno = phno;
-        this.aadharno = aadharno;
-        this.age = age;
-        this.bloodGroup = bloodGroup;
-        this.request = request;
-        this.rr = rr;
-        this.spo2 = spo2;
-        this.avpu = avpu;
-        this.mews = mews;
-        this.bp = bp;
-        this.heartrate = heartrate;
-    }
 }
 class passData{
     public String phno,message,hospital;
