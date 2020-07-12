@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:hint="Name"
             android:id="@+id/namepositive"
+
             />
         <EditText
             android:layout_width="match_parent"
@@ -62,11 +63,12 @@
             android:layout_height="wrap_content"
             android:text="Upload Your Covid Test Report"
             android:layout_margin="15dp"
+            android:id="@+id/uploadimagepositive"
             />
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/report"
+            android:id="@+id/reportpositive"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -79,7 +81,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
-
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Create Password"
+            android:id="@+id/passpositive"
+            android:inputType="textPassword"
+            android:layout_margin="10dp"
+            />
         <Button
             android:id="@+id/applypositive"
             android:layout_width="match_parent"
