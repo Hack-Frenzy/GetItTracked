@@ -32,6 +32,7 @@
             android:layout_height="wrap_content"
             android:hint="phone no."
             android:id="@+id/phnopostcovid"
+            android:inputType="number"
             />
         <EditText
             android:layout_width="match_parent"
@@ -44,12 +45,14 @@
             android:layout_height="wrap_content"
             android:hint="Aadhaar no."
             android:id="@+id/aadharpostcovid"
+            android:inputType="number"
             />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Age"
             android:id="@+id/agepostcovid"
+            android:inputType="number"
             />
         <EditText
             android:layout_width="match_parent"

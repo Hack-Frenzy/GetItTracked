@@ -104,6 +104,15 @@ public class postcovid extends AppCompatActivity {
                     myRef.child("age").setValue(ageget);
                     myRef.child("bloodGroup").setValue(bloodget);
                     myRef.child("request").setValue(request);
+                    myRef.child("rr").setValue(0);
+                    myRef.child("spo2").setValue(0);
+                    myRef.child("avpu").setValue(0);
+                    myRef.child("bp").setValue(0);
+                    myRef.child("mews").setValue(0);
+                    myRef.child("heartrate").setValue(0);
+                    DatabaseReference myRefAccess = database.getReference().child("Access").child(user.getUid());
+                    myRefAccess.child("hospital").setValue("postcovid");
+                    myRefAccess.child("phno").setValue(Integer.parseInt(phNoget));
                 }
             }
         });
@@ -111,7 +120,7 @@ public class postcovid extends AppCompatActivity {
         apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!(email.getText()==null || pass.getText()==null || phNo.getText()==null || name.getText()==null || aadharNo.getText()==null || age.getText()==null || blood.getText()==null))
+                if(!(email.getText() == null || pass.getText() == null || phNo.getText() == null || name.getText() == null || aadharNo.getText() == null || age.getText() == null || blood.getText() == null))
                 {
                     emailId = email.getText().toString();
                     password = email.getText().toString();
