@@ -31,6 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="phone no."
+            android:inputType="number"
             android:id="@+id/phnocontact"
             />
         <EditText
@@ -42,12 +43,14 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:hint="Aadhaar no."
             android:id="@+id/aadharcontact"
             />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:hint="Age"
             android:id="@+id/agecontact"
             />
@@ -74,7 +77,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
-
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/passwordcontact"
+            android:hint="Create Password"
+            android:inputType="textPassword"
+            android:layout_margin="10dp"
+        />
         <Button
             android:id="@+id/applycontact"
             android:layout_width="match_parent"
