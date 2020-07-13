@@ -210,8 +210,40 @@ public class homeActivity extends AppCompatActivity {
                         break;
                     case 1:
                         // Whatever you want to happen when the first item gets selected
-                        Intent myIntentprofile = new Intent(homeActivity.this, profile.class);
-                        homeActivity.this.startActivity(myIntentprofile);
+                       if(!Data.hospital.equals("") ) {Intent myIntentprofile = new Intent(homeActivity.this, profile.class);
+                        if(Data.hospital.equals("positive") || Data.hospital.equals("postcovid") ) {
+                            String[] prof1 = new String[6];
+                            prof1[0]= datapost.name;
+                            prof1[1]= datapost.age;
+                            prof1[2]=datapost.phno;
+                            prof1[3]=datapost.aadharno;
+                            prof1[4]=datapost.bloodGroup;
+                            prof1[5]=Data.hospital;
+                            myIntentprofile.putExtra("message",prof1);
+                            homeActivity.this.startActivity(myIntentprofile);
+                        }
+                        else if(Data.hospital.equals("contact") ){
+                            String[] prof2 = new String[6];
+                            prof2[0]= datacon.name;
+                            prof2[1]= datacon.age;
+                            prof2[2]=datacon.phno;
+                            prof2[3]=datacon.aadharno;
+                            prof2[4]=datacon.bloodGroup;
+                            prof2[5]=Data.hospital;
+                            myIntentprofile.putExtra("message",prof2);
+                            homeActivity.this.startActivity(myIntentprofile);
+                        }
+                        else {
+                            String[] prof3 = new String[6];
+                            prof3[0]= Alldata.firstname + " " + Alldata.lastname;
+                            prof3[1]= String.valueOf(Alldata.age);
+                            prof3[2]= String.valueOf(Alldata.phoneNo);
+                            prof3[3]= String.valueOf(Alldata.aadharno);
+                            prof3[4]= Alldata.bloodgrp;
+                            prof3[5]=Data.hospital;
+                            myIntentprofile.putExtra("message",prof3);
+                            homeActivity.this.startActivity(myIntentprofile);
+                        }}
 
                         break;
                     case 2:
@@ -385,22 +417,6 @@ class allData{
     public allData() {
     }
 
-    public allData(long rr, long spo2, long heartrate, long avpu, long bp, long aadharno, long age, long phoneNo, String bloodgrp, String email, String firstname, String gender, String lastname, long mews) {
-        this.rr = rr;
-        this.spo2 = spo2;
-        this.heartrate = heartrate;
-        this.avpu = avpu;
-        this.bp = bp;
-        this.aadharno = aadharno;
-        this.age = age;
-        this.phoneNo = phoneNo;
-        this.bloodgrp = bloodgrp;
-        this.email = email;
-        this.firstname = firstname;
-        this.gender = gender;
-        this.lastname = lastname;
-        this.mews = mews;
-    }
 }
 class positivepost{
     public  String name,phno,aadharno,age,bloodGroup,request,url;
@@ -419,6 +435,6 @@ class contactget{
 
 }
 class passData{
-    public String phno,message,hospital;
+    public String phno,message,hospital="";
     public int current;
 }
