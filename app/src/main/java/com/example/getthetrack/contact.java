@@ -91,7 +91,7 @@ public class contact extends AppCompatActivity {
                     myRef.child("mews").setValue(0);
                     myRef.child("heartrate").setValue(0);
                     DatabaseReference myRefAccess = database.getReference().child("Access").child(user.getUid());
-                    myRefAccess.child("hospital").setValue("positive");
+                    myRefAccess.child("hospital").setValue("contact");
                     myRefAccess.child("phno").setValue(Integer.valueOf(phoneno));
                     myRef.child("request").setValue(request);
                     apply.setEnabled(true);
