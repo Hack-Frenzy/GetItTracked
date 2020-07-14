@@ -130,6 +130,7 @@ public class postcovid extends AppCompatActivity {
                     ageget = age.getText().toString();
                     bloodget = blood.getText().toString();
                     if(!(emailId.equals("") || password.equals(""))){
+                        apply.setEnabled(false);
                         mAuth.createUserWithEmailAndPassword(emailId, password)
                                 .addOnCompleteListener(postcovid.this, new OnCompleteListener<AuthResult>() {
                                     @Override
@@ -291,10 +292,13 @@ public class postcovid extends AppCompatActivity {
 
                                     Toast
                                             .makeText(getApplicationContext(),
-                                                    "Image Selected!! NOW CLICK UPLOAD",
+                                                    "Sign Up Completed",
                                                     Toast.LENGTH_LONG)
                                             .show();
                                     apply.setEnabled(true);
+                                    Intent intent = new Intent(postcovid.this, MainActivity.class);
+                                    startActivity(intent);
+                                    finish();
                                 }
                             })
 

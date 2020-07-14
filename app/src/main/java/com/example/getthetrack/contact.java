@@ -94,8 +94,10 @@ public class contact extends AppCompatActivity {
                     myRefAccess.child("hospital").setValue("positive");
                     myRefAccess.child("phno").setValue(Integer.valueOf(phoneno));
                     myRef.child("request").setValue(request);
-
-
+                    apply.setEnabled(true);
+                    Intent intent = new Intent(contact.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
                 }
             }
         });
@@ -115,6 +117,7 @@ public class contact extends AppCompatActivity {
                     bldgrpget = bldgrp.getText().toString();
                     sympget = symptoms.getText().toString();
                     if(!(emailid.equals("") || passget.equals(""))){
+                        apply.setEnabled(false);
                         mAuth.createUserWithEmailAndPassword(emailid, passget)
                                 .addOnCompleteListener(contact.this, new OnCompleteListener<AuthResult>() {
                                     @Override

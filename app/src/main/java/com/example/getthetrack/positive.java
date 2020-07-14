@@ -185,6 +185,7 @@ public class positive extends AppCompatActivity {
                 ageget = age.getText().toString();
                 bloodgrp = blood.getText().toString();
                 if(!(emailid.equals("") || passget.equals(""))){
+                    apply.setEnabled(false);
                     mAuth.createUserWithEmailAndPassword(emailid, passget)
                             .addOnCompleteListener(positive.this, new OnCompleteListener<AuthResult>() {
                                 @Override
@@ -292,10 +293,13 @@ public class positive extends AppCompatActivity {
                                     uid = user.getUid();
                                     Toast
                                             .makeText(getApplicationContext(),
-                                                    "Image Selected!! NOW CLICK UPLOAD",
+                                                    "Sign Up Completed Successfully",
                                                     Toast.LENGTH_LONG)
                                             .show();
                                     apply.setEnabled(true);
+                                    Intent intent = new Intent(positive.this, MainActivity.class);
+                                    startActivity(intent);
+                                    finish();
                                 }
                             })
 
@@ -309,6 +313,7 @@ public class positive extends AppCompatActivity {
                                             "Failed " + e.getMessage(),
                                             Toast.LENGTH_SHORT)
                                     .show();
+                            apply.setEnabled(true);
                         }
                     })
                     .addOnProgressListener(
