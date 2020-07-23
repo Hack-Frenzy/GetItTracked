@@ -55,7 +55,7 @@ public class positive extends AppCompatActivity {
     String passget;
     String emailid;
     String url2;
-    String reuest;
+    String reuest, reuestname;
     String[] hospiname = new  String[100];
     ArrayList<String> str=new ArrayList<String>();
     public String key;
@@ -107,7 +107,7 @@ public class positive extends AppCompatActivity {
                     myRef.child("aadharno").setValue(aadharget);
                     myRef.child("age").setValue(ageget);
                     myRef.child("bloodGroup").setValue(bloodgrp);
-                    myRef.child("request").setValue(reuest);
+                    myRef.child("request").setValue(reuestname);
                     myRef.child("rr").setValue(0);
                     myRef.child("spo2").setValue(0);
                     myRef.child("avpu").setValue(0);
@@ -140,7 +140,7 @@ public class positive extends AppCompatActivity {
                 int i=0;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     hospiinfois hos = snapshot.getValue(hospiinfois.class);
-                    hospiname[i]=hos.name +" (" + hos.address+" )";
+                    hospiname[i]=hos.name +": (" + hos.address+" )";
                     str.add(hos.name +" (" + hos.address+" )");
                     i++;
                 }
@@ -163,6 +163,7 @@ public class positive extends AppCompatActivity {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         reuest = hospiname[position];
+                        reuestname = ((hospiname[position]).split(":"))[0].trim();
                     }
                     @Override
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -297,6 +298,14 @@ public class positive extends AppCompatActivity {
                                                     Toast.LENGTH_LONG)
                                             .show();
                                     apply.setEnabled(true);
+
+                                    email.setText("");
+                                    pass.setText("");
+                                    phno.setText("");
+                                    name.setText("");
+                                    aadharno.setText("");
+                                    age.setText("");
+                                    blood.setText("");
                                     Intent intent = new Intent(positive.this, MainActivity.class);
                                     startActivity(intent);
                                     finish();

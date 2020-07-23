@@ -26,7 +26,8 @@
             android:layout_height="wrap_content"
             android:hint="Name"
             android:id="@+id/namepositive"
-
+            android:padding="18dp"
+            android:textColorHint="#800080"
             />
         <EditText
             android:layout_width="match_parent"
@@ -34,12 +35,16 @@
             android:hint="phone no."
             android:id="@+id/phnopositive"
             android:inputType="number"
+            android:padding="18dp"
+            android:textColorHint="#800080"
             />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="email"
             android:id="@+id/emailpositive"
+            android:padding="18dp"
+            android:textColorHint="#800080"
             />
         <EditText
             android:layout_width="match_parent"
@@ -47,6 +52,8 @@
             android:hint="Aadhaar no."
             android:id="@+id/aadharpositive"
             android:inputType="number"
+            android:padding="18dp"
+            android:textColorHint="#800080"
             />
         <EditText
             android:layout_width="match_parent"
@@ -54,12 +61,16 @@
             android:hint="Age"
             android:id="@+id/agepositive"
             android:inputType="number"
+            android:padding="18dp"
+            android:textColorHint="#800080"
             />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Blood Group"
             android:id="@+id/bloodgrouppositive"
+            android:padding="18dp"
+            android:textColorHint="#800080"
             />
         <Button
             android:layout_width="wrap_content"
@@ -67,6 +78,8 @@
             android:text="Upload Your Covid Test Report"
             android:layout_margin="15dp"
             android:id="@+id/uploadimagepositive"
+            android:padding="18dp"
+            android:textColorHint="#800080"
             />
         <ImageView
             android:layout_width="match_parent"
@@ -78,6 +91,7 @@
             android:layout_height="wrap_content"
             android:text="Choose a hopital to request"
             android:textSize="20sp"
+            android:padding="18dp"
             />
         <Spinner
             android:id="@+id/spinnerpositive"
@@ -91,6 +105,8 @@
             android:id="@+id/passpositive"
             android:inputType="textPassword"
             android:layout_margin="10dp"
+            android:padding="18dp"
+            android:textColorHint="#800080"
             />
         <Button
             android:id="@+id/applypositive"
@@ -100,6 +116,7 @@
             android:text="Apply For Monitoring"
             android:textColor="#971A9F"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            />
     </LinearLayout>
 </ScrollView>

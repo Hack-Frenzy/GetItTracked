@@ -103,7 +103,8 @@ public class postcovid extends AppCompatActivity {
                     myRef.child("aadharno").setValue(aadharNoget);
                     myRef.child("age").setValue(ageget);
                     myRef.child("bloodGroup").setValue(bloodget);
-                    myRef.child("request").setValue(request);
+                    String str = ((request).split(":"))[0].trim();
+                    myRef.child("request").setValue(str);
                     myRef.child("rr").setValue(0);
                     myRef.child("spo2").setValue(0);
                     myRef.child("avpu").setValue(0);
@@ -296,8 +297,14 @@ public class postcovid extends AppCompatActivity {
                                                     Toast.LENGTH_LONG)
                                             .show();
                                     apply.setEnabled(true);
-                                    Intent intent = new Intent(postcovid.this, MainActivity.class);
-                                    startActivity(intent);
+
+                                    email.setText("");
+                                    pass.setText("");
+                                    phNo.setText("");
+                                    name.setText("");
+                                    aadharNo.setText("");
+                                    age.setText("");
+                                    blood.setText("");
                                     finish();
                                 }
                             })

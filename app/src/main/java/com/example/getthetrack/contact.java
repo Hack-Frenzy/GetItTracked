@@ -93,11 +93,17 @@ public class contact extends AppCompatActivity {
                     DatabaseReference myRefAccess = database.getReference().child("Access").child(user.getUid());
                     myRefAccess.child("hospital").setValue("contact");
                     myRefAccess.child("phno").setValue(Integer.valueOf(phoneno));
-                    myRef.child("request").setValue(request);
+                    String str = ((request).split(":"))[0].trim();
+                    myRef.child("request").setValue(str);
                     apply.setEnabled(true);
-                    Intent intent = new Intent(contact.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
+                    email.setText("");
+                    pass.setText("");
+                    phno.setText("");
+                    name.setText("");
+                    aadhar.setText("");
+                    age.setText("");
+                    bldgrp.setText("");
+                    symptoms.setText("");
                 }
             }
         });

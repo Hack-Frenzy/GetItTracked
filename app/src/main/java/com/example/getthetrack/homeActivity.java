@@ -27,6 +27,7 @@ import java.util.concurrent.CountDownLatch;
 public class homeActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private Spinner spinner;
+
     DatabaseReference myRefpathit;
     allData Alldata;
     positivepost datapost;
@@ -37,7 +38,7 @@ public class homeActivity extends AppCompatActivity {
     int setter=0;
     Thread thread;
     CountDownLatch done = new CountDownLatch(1);
-    TextView rr,spo2,hr,bp,avpu;
+    TextView rr,spo2,hr,bp,avpu,me;
     private static final String[] paths = {"","Profile Settings", "Sign Out"};
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,6 +54,8 @@ public class homeActivity extends AppCompatActivity {
         bbp =findViewById(R.id.searchbp);
         bspo2 = findViewById(R.id.searchspo2);
         bhr =findViewById(R.id.searchhr);
+        Intent intent = new Intent(this, MyService.class);
+        startService(intent);
         bavpu = findViewById(R.id.searchAVPU);
 
         //Click listeners
@@ -295,6 +298,65 @@ public class homeActivity extends AppCompatActivity {
                             hr.setEnabled(true);
                             avpu.setEnabled(true);
                             bp.setEnabled(true);
+                            mAuth =FirebaseAuth.getInstance();
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            DatabaseReference myRef = database.getReference().child(valuefine[1]).child(user.getUid());
+                            if(datapost.rr>=9 && datapost.rr<=21){
+                                if(datapost.spo2>92){
+                                    myRef.child("mews").setValue(0);
+                                }
+                                else if(datapost.spo2>90 && datapost.spo2<=92){
+                                    myRef.child("mews").setValue(1);
+                                }
+                                else if(datapost.spo2>85 && datapost.spo2<90){
+                                    myRef.child("mews").setValue(2);
+                                }
+                                else if(datapost.spo2>85){
+                                    myRef.child("mews").setValue(3);
+                                }
+                            }
+                            else if(datapost.rr>21 && datapost.rr<=30){
+                                if(datapost.spo2>92){
+                                    myRef.child("mews").setValue(0);
+                                }
+                                else if(datapost.spo2>90 && datapost.spo2<=92){
+                                    myRef.child("mews").setValue(1);
+                                }
+                                else if(datapost.spo2>85 && datapost.spo2<90){
+                                    myRef.child("mews").setValue(2);
+                                }
+                                else if(datapost.spo2>85){
+                                    myRef.child("mews").setValue(3);
+                                }
+                            }
+                            else if(datapost.rr>30 && datapost.rr<35){
+                                if(datapost.spo2>92){
+                                    myRef.child("mews").setValue(0);
+                                }
+                                else if(datapost.spo2>90 && datapost.spo2<=92){
+                                    myRef.child("mews").setValue(1);
+                                }
+                                else if(datapost.spo2>85 && datapost.spo2<90){
+                                    myRef.child("mews").setValue(2);
+                                }
+                                else if(datapost.spo2>85){
+                                    myRef.child("mews").setValue(3);
+                                }
+                            }
+                            else if(datapost.rr>35){
+                                if(datapost.spo2>92){
+                                    myRef.child("mews").setValue(0);
+                                }
+                                else if(datapost.spo2>90 && datapost.spo2<=92){
+                                    myRef.child("mews").setValue(1);
+                                }
+                                else if(datapost.spo2>85 && datapost.spo2<90){
+                                    myRef.child("mews").setValue(2);
+                                }
+                                else if(datapost.spo2>85){
+                                    myRef.child("mews").setValue(3);
+                                }
+                            }
                         }
                         @Override
                         public void onCancelled(DatabaseError error) {
@@ -324,6 +386,65 @@ public class homeActivity extends AppCompatActivity {
                             hr.setEnabled(true);
                             avpu.setEnabled(true);
                             bp.setEnabled(true);
+                            mAuth = FirebaseAuth.getInstance();
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            DatabaseReference myRef = database.getReference().child(valuefine[1]).child(user.getUid());
+                            if(datapost.rr>=9 && datapost.rr<=21){
+                                if(datapost.spo2>92){
+                                    myRef.child("mews").setValue(0);
+                                }
+                                else if(datapost.spo2>90 && datapost.spo2<=92){
+                                    myRef.child("mews").setValue(1);
+                                }
+                                else if(datapost.spo2>85 && datapost.spo2<90){
+                                    myRef.child("mews").setValue(2);
+                                }
+                                else if(datapost.spo2>85){
+                                    myRef.child("mews").setValue(3);
+                                }
+                            }
+                            else if(datapost.rr>21 && datapost.rr<=30){
+                                if(datapost.spo2>92){
+                                    myRef.child("mews").setValue(0);
+                                }
+                                else if(datapost.spo2>90 && datapost.spo2<=92){
+                                    myRef.child("mews").setValue(1);
+                                }
+                                else if(datapost.spo2>85 && datapost.spo2<90){
+                                    myRef.child("mews").setValue(2);
+                                }
+                                else if(datapost.spo2>85){
+                                    myRef.child("mews").setValue(3);
+                                }
+                            }
+                            else if(datapost.rr>30 && datapost.rr<35){
+                                if(datapost.spo2>92){
+                                    myRef.child("mews").setValue(0);
+                                }
+                                else if(datapost.spo2>90 && datapost.spo2<=92){
+                                    myRef.child("mews").setValue(1);
+                                }
+                                else if(datapost.spo2>85 && datapost.spo2<90){
+                                    myRef.child("mews").setValue(2);
+                                }
+                                else if(datapost.spo2>85){
+                                    myRef.child("mews").setValue(3);
+                                }
+                            }
+                            else if(datapost.rr>35){
+                                if(datapost.spo2>92){
+                                    myRef.child("mews").setValue(0);
+                                }
+                                else if(datapost.spo2>90 && datapost.spo2<=92){
+                                    myRef.child("mews").setValue(1);
+                                }
+                                else if(datapost.spo2>85 && datapost.spo2<90){
+                                    myRef.child("mews").setValue(2);
+                                }
+                                else if(datapost.spo2>85){
+                                    myRef.child("mews").setValue(3);
+                                }
+                            }
                         }
                         @Override
                         public void onCancelled(DatabaseError error) {
@@ -354,6 +475,63 @@ public class homeActivity extends AppCompatActivity {
                         hr.setEnabled(true);
                         avpu.setEnabled(true);
                         bp.setEnabled(true);
+                        DatabaseReference myRef = database.getReference().child("Patients").child(valuefine[1]).child(valuefine[0]);
+                        if(datapost.rr>=9 && datapost.rr<=21){
+                            if(datapost.spo2>92){
+                                myRef.child("mews").setValue(0);
+                            }
+                            else if(datapost.spo2>90 && datapost.spo2<=92){
+                                myRef.child("mews").setValue(1);
+                            }
+                            else if(datapost.spo2>85 && datapost.spo2<90){
+                                myRef.child("mews").setValue(2);
+                            }
+                            else if(datapost.spo2>85){
+                                myRef.child("mews").setValue(3);
+                            }
+                        }
+                        else if(datapost.rr>21 && datapost.rr<=30){
+                            if(datapost.spo2>92){
+                                myRef.child("mews").setValue(0);
+                            }
+                            else if(datapost.spo2>90 && datapost.spo2<=92){
+                                myRef.child("mews").setValue(1);
+                            }
+                            else if(datapost.spo2>85 && datapost.spo2<90){
+                                myRef.child("mews").setValue(2);
+                            }
+                            else if(datapost.spo2>85){
+                                myRef.child("mews").setValue(3);
+                            }
+                        }
+                        else if(datapost.rr>30 && datapost.rr<35){
+                            if(datapost.spo2>92){
+                                myRef.child("mews").setValue(0);
+                            }
+                            else if(datapost.spo2>90 && datapost.spo2<=92){
+                                myRef.child("mews").setValue(1);
+                            }
+                            else if(datapost.spo2>85 && datapost.spo2<90){
+                                myRef.child("mews").setValue(2);
+                            }
+                            else if(datapost.spo2>85){
+                                myRef.child("mews").setValue(3);
+                            }
+                        }
+                        else if(datapost.rr>35){
+                            if(datapost.spo2>92){
+                                myRef.child("mews").setValue(0);
+                            }
+                            else if(datapost.spo2>90 && datapost.spo2<=92){
+                                myRef.child("mews").setValue(1);
+                            }
+                            else if(datapost.spo2>85 && datapost.spo2<90){
+                                myRef.child("mews").setValue(2);
+                            }
+                            else if(datapost.spo2>85){
+                                myRef.child("mews").setValue(3);
+                            }
+                        }
                     }
                     @Override
                     public void onCancelled(DatabaseError error) {
