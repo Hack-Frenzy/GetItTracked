@@ -386,62 +386,63 @@ public class homeActivity extends AppCompatActivity {
                             hr.setEnabled(true);
                             avpu.setEnabled(true);
                             bp.setEnabled(true);
+
                             mAuth = FirebaseAuth.getInstance();
                             FirebaseUser user = mAuth.getCurrentUser();
                             DatabaseReference myRef = database.getReference().child(valuefine[1]).child(user.getUid());
-                            if(datapost.rr>=9 && datapost.rr<=21){
-                                if(datapost.spo2>92){
+                            if(datacon.rr>=9 && datacon.rr<=21){
+                                if(datacon.spo2>92){
                                     myRef.child("mews").setValue(0);
                                 }
-                                else if(datapost.spo2>90 && datapost.spo2<=92){
+                                else if(datacon.spo2>90 && datacon.spo2<=92){
                                     myRef.child("mews").setValue(1);
                                 }
-                                else if(datapost.spo2>85 && datapost.spo2<90){
+                                else if(datacon.spo2>85 && datacon.spo2<90){
                                     myRef.child("mews").setValue(2);
                                 }
-                                else if(datapost.spo2>85){
+                                else if(datacon.spo2>85){
                                     myRef.child("mews").setValue(3);
                                 }
                             }
-                            else if(datapost.rr>21 && datapost.rr<=30){
-                                if(datapost.spo2>92){
+                            else if(datacon.rr>21 && datacon.rr<=30){
+                                if(datacon.spo2>92){
                                     myRef.child("mews").setValue(0);
                                 }
-                                else if(datapost.spo2>90 && datapost.spo2<=92){
+                                else if(datacon.spo2>90 && datacon.spo2<=92){
                                     myRef.child("mews").setValue(1);
                                 }
-                                else if(datapost.spo2>85 && datapost.spo2<90){
+                                else if(datacon.spo2>85 && datacon.spo2<90){
                                     myRef.child("mews").setValue(2);
                                 }
-                                else if(datapost.spo2>85){
+                                else if(datacon.spo2>85){
                                     myRef.child("mews").setValue(3);
                                 }
                             }
-                            else if(datapost.rr>30 && datapost.rr<35){
-                                if(datapost.spo2>92){
+                            else if(datacon.rr>30 && datacon.rr<35){
+                                if(datacon.spo2>92){
                                     myRef.child("mews").setValue(0);
                                 }
-                                else if(datapost.spo2>90 && datapost.spo2<=92){
+                                else if(datacon.spo2>90 && datacon.spo2<=92){
                                     myRef.child("mews").setValue(1);
                                 }
-                                else if(datapost.spo2>85 && datapost.spo2<90){
+                                else if(datacon.spo2>85 && datacon.spo2<90){
                                     myRef.child("mews").setValue(2);
                                 }
-                                else if(datapost.spo2>85){
+                                else if(datacon.spo2>85){
                                     myRef.child("mews").setValue(3);
                                 }
                             }
-                            else if(datapost.rr>35){
-                                if(datapost.spo2>92){
+                            else if(datacon.rr>35){
+                                if(datacon.spo2>92){
                                     myRef.child("mews").setValue(0);
                                 }
-                                else if(datapost.spo2>90 && datapost.spo2<=92){
+                                else if(datacon.spo2>90 && datacon.spo2<=92){
                                     myRef.child("mews").setValue(1);
                                 }
-                                else if(datapost.spo2>85 && datapost.spo2<90){
+                                else if(datacon.spo2>85 && datacon.spo2<90){
                                     myRef.child("mews").setValue(2);
                                 }
-                                else if(datapost.spo2>85){
+                                else if(datacon.spo2>85){
                                     myRef.child("mews").setValue(3);
                                 }
                             }
@@ -476,59 +477,59 @@ public class homeActivity extends AppCompatActivity {
                         avpu.setEnabled(true);
                         bp.setEnabled(true);
                         DatabaseReference myRef = database.getReference().child("Patients").child(valuefine[1]).child(valuefine[0]);
-                        if(datapost.rr>=9 && datapost.rr<=21){
-                            if(datapost.spo2>92){
+                        if(Alldata.rr>=9 && Alldata.rr<=21){
+                            if(Alldata.spo2>92){
                                 myRef.child("mews").setValue(0);
                             }
-                            else if(datapost.spo2>90 && datapost.spo2<=92){
+                            else if(Alldata.spo2>90 && Alldata.spo2<=92){
                                 myRef.child("mews").setValue(1);
                             }
-                            else if(datapost.spo2>85 && datapost.spo2<90){
+                            else if(Alldata.spo2>85 && Alldata.spo2<90){
                                 myRef.child("mews").setValue(2);
                             }
-                            else if(datapost.spo2>85){
+                            else if(Alldata.spo2>85){
                                 myRef.child("mews").setValue(3);
                             }
                         }
-                        else if(datapost.rr>21 && datapost.rr<=30){
-                            if(datapost.spo2>92){
+                        else if(Alldata.rr>21 && Alldata.rr<=30){
+                            if(Alldata.spo2>92){
                                 myRef.child("mews").setValue(0);
                             }
-                            else if(datapost.spo2>90 && datapost.spo2<=92){
+                            else if(Alldata.spo2>90 && Alldata.spo2<=92){
                                 myRef.child("mews").setValue(1);
                             }
-                            else if(datapost.spo2>85 && datapost.spo2<90){
+                            else if(Alldata.spo2>85 && Alldata.spo2<90){
                                 myRef.child("mews").setValue(2);
                             }
-                            else if(datapost.spo2>85){
+                            else if(Alldata.spo2>85){
                                 myRef.child("mews").setValue(3);
                             }
                         }
-                        else if(datapost.rr>30 && datapost.rr<35){
-                            if(datapost.spo2>92){
+                        else if(Alldata.rr>30 && Alldata.rr<35){
+                            if(Alldata.spo2>92){
                                 myRef.child("mews").setValue(0);
                             }
-                            else if(datapost.spo2>90 && datapost.spo2<=92){
+                            else if(Alldata.spo2>90 && Alldata.spo2<=92){
                                 myRef.child("mews").setValue(1);
                             }
-                            else if(datapost.spo2>85 && datapost.spo2<90){
+                            else if(Alldata.spo2>85 && Alldata.spo2<90){
                                 myRef.child("mews").setValue(2);
                             }
-                            else if(datapost.spo2>85){
+                            else if(Alldata.spo2>85){
                                 myRef.child("mews").setValue(3);
                             }
                         }
-                        else if(datapost.rr>35){
-                            if(datapost.spo2>92){
+                        else if(Alldata.rr>35){
+                            if(Alldata.spo2>92){
                                 myRef.child("mews").setValue(0);
                             }
-                            else if(datapost.spo2>90 && datapost.spo2<=92){
+                            else if(Alldata.spo2>90 && Alldata.spo2<=92){
                                 myRef.child("mews").setValue(1);
                             }
-                            else if(datapost.spo2>85 && datapost.spo2<90){
+                            else if(Alldata.spo2>85 && Alldata.spo2<90){
                                 myRef.child("mews").setValue(2);
                             }
-                            else if(datapost.spo2>85){
+                            else if(Alldata.spo2>85){
                                 myRef.child("mews").setValue(3);
                             }
                         }

@@ -112,6 +112,7 @@ public class positive extends AppCompatActivity {
                     myRef.child("spo2").setValue(0);
                     myRef.child("avpu").setValue(0);
                     myRef.child("bp").setValue(0);
+                    myRef.child("uid").setValue(user.getUid().toString());
                     myRef.child("mews").setValue(0);
                     myRef.child("heartrate").setValue(0);
                     DatabaseReference myRefAccess = database.getReference().child("Access").child(user.getUid());

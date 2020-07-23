@@ -89,6 +89,7 @@ public class contact extends AppCompatActivity {
                     myRef.child("avpu").setValue(0);
                     myRef.child("bp").setValue(0);
                     myRef.child("mews").setValue(0);
+                    myRef.child("uid").setValue(user.getUid().toString());
                     myRef.child("heartrate").setValue(0);
                     DatabaseReference myRefAccess = database.getReference().child("Access").child(user.getUid());
                     myRefAccess.child("hospital").setValue("contact");
@@ -156,7 +157,7 @@ public class contact extends AppCompatActivity {
                 int i=0;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     hospiinfoiscon hos = snapshot.getValue(hospiinfoiscon.class);
-                   hospitalname[i]=hos.name + " (" + hos.address+ " )";
+                   hospitalname[i]=hos.name + ": (" + hos.address+ " )";
                     str.add(hos.name +" (" + hos.address+" )");
                    i++;
                 } spin.run();

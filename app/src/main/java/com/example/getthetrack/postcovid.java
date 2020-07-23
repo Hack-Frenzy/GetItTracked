@@ -110,6 +110,7 @@ public class postcovid extends AppCompatActivity {
                     myRef.child("avpu").setValue(0);
                     myRef.child("bp").setValue(0);
                     myRef.child("mews").setValue(0);
+                    myRef.child("uid").setValue(user.getUid().toString());
                     myRef.child("heartrate").setValue(0);
                     DatabaseReference myRefAccess = database.getReference().child("Access").child(user.getUid());
                     myRefAccess.child("hospital").setValue("postcovid");
@@ -172,7 +173,7 @@ public class postcovid extends AppCompatActivity {
                 int i = 0;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     hospiinfoispos hos = snapshot.getValue(hospiinfoispos.class);
-                    hospiname[i] = hos.name + " (" + hos.address + ")";
+                    hospiname[i] = hos.name + ": (" + hos.address + ")";
                     str.add(hos.name +" (" + hos.address+" )");
                     i++;
                 }
