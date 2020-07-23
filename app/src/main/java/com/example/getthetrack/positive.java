@@ -55,7 +55,7 @@ public class positive extends AppCompatActivity {
     String passget;
     String emailid;
     String url2;
-    String reuest;
+    String reuest, reuestname;
     String[] hospiname = new  String[100];
     ArrayList<String> str=new ArrayList<String>();
     public String key;
@@ -107,11 +107,12 @@ public class positive extends AppCompatActivity {
                     myRef.child("aadharno").setValue(aadharget);
                     myRef.child("age").setValue(ageget);
                     myRef.child("bloodGroup").setValue(bloodgrp);
-                    myRef.child("request").setValue(reuest);
+                    myRef.child("request").setValue(reuestname);
                     myRef.child("rr").setValue(0);
                     myRef.child("spo2").setValue(0);
                     myRef.child("avpu").setValue(0);
                     myRef.child("bp").setValue(0);
+                    myRef.child("uid").setValue(user.getUid().toString());
                     myRef.child("mews").setValue(0);
                     myRef.child("heartrate").setValue(0);
                     DatabaseReference myRefAccess = database.getReference().child("Access").child(user.getUid());
@@ -140,7 +141,7 @@ public class positive extends AppCompatActivity {
                 int i=0;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     hospiinfois hos = snapshot.getValue(hospiinfois.class);
-                    hospiname[i]=hos.name +" (" + hos.address+" )";
+                    hospiname[i]=hos.name +": (" + hos.address+" )";
                     str.add(hos.name +" (" + hos.address+" )");
                     i++;
                 }
@@ -163,6 +164,7 @@ public class positive extends AppCompatActivity {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         reuest = hospiname[position];
+                        reuestname = ((hospiname[position]).split(":"))[0].trim();
                     }
                     @Override
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -185,6 +187,7 @@ public class positive extends AppCompatActivity {
                 ageget = age.getText().toString();
                 bloodgrp = blood.getText().toString();
                 if(!(emailid.equals("") || passget.equals(""))){
+                    apply.setEnabled(false);
                     mAuth.createUserWithEmailAndPassword(emailid, passget)
                             .addOnCompleteListener(positive.this, new OnCompleteListener<AuthResult>() {
                                 @Override
@@ -292,10 +295,21 @@ public class positive extends AppCompatActivity {
                                     uid = user.getUid();
                                     Toast
                                             .makeText(getApplicationContext(),
-                                                    "Image Selected!! NOW CLICK UPLOAD",
+                                                    "Sign Up Completed Successfully",
                                                     Toast.LENGTH_LONG)
                                             .show();
                                     apply.setEnabled(true);
+
+                                    email.setText("");
+                                    pass.setText("");
+                                    phno.setText("");
+                                    name.setText("");
+                                    aadharno.setText("");
+                                    age.setText("");
+                                    blood.setText("");
+                                    Intent intent = new Intent(positive.this, MainActivity.class);
+                                    startActivity(intent);
+                                    finish();
                                 }
                             })
 
@@ -309,6 +323,7 @@ public class positive extends AppCompatActivity {
                                             "Failed " + e.getMessage(),
                                             Toast.LENGTH_SHORT)
                                     .show();
+                            apply.setEnabled(true);
                         }
                     })
                     .addOnProgressListener(

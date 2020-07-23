@@ -28,7 +28,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="I Am"
+            android:text="I am"
             android:textAlignment="center"
             android:textSize="35sp" />
 

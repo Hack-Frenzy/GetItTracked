@@ -89,13 +89,22 @@ public class contact extends AppCompatActivity {
                     myRef.child("avpu").setValue(0);
                     myRef.child("bp").setValue(0);
                     myRef.child("mews").setValue(0);
+                    myRef.child("uid").setValue(user.getUid().toString());
                     myRef.child("heartrate").setValue(0);
                     DatabaseReference myRefAccess = database.getReference().child("Access").child(user.getUid());
                     myRefAccess.child("hospital").setValue("contact");
                     myRefAccess.child("phno").setValue(Integer.valueOf(phoneno));
-                    myRef.child("request").setValue(request);
-
-
+                    String str = ((request).split(":"))[0].trim();
+                    myRef.child("request").setValue(str);
+                    apply.setEnabled(true);
+                    email.setText("");
+                    pass.setText("");
+                    phno.setText("");
+                    name.setText("");
+                    aadhar.setText("");
+                    age.setText("");
+                    bldgrp.setText("");
+                    symptoms.setText("");
                 }
             }
         });
@@ -115,6 +124,7 @@ public class contact extends AppCompatActivity {
                     bldgrpget = bldgrp.getText().toString();
                     sympget = symptoms.getText().toString();
                     if(!(emailid.equals("") || passget.equals(""))){
+                        apply.setEnabled(false);
                         mAuth.createUserWithEmailAndPassword(emailid, passget)
                                 .addOnCompleteListener(contact.this, new OnCompleteListener<AuthResult>() {
                                     @Override
@@ -147,7 +157,7 @@ public class contact extends AppCompatActivity {
                 int i=0;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     hospiinfoiscon hos = snapshot.getValue(hospiinfoiscon.class);
-                   hospitalname[i]=hos.name + " (" + hos.address+ " )";
+                   hospitalname[i]=hos.name + ": (" + hos.address+ " )";
                     str.add(hos.name +" (" + hos.address+" )");
                    i++;
                 } spin.run();

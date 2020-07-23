@@ -26,6 +26,8 @@
             android:layout_height="wrap_content"
             android:hint="Name"
             android:id="@+id/namecontact"
+            android:padding="18dp"
+            android:textColorHint="#800080"
             />
         <EditText
             android:layout_width="match_parent"
@@ -33,12 +35,16 @@
             android:hint="phone no."
             android:inputType="number"
             android:id="@+id/phnocontact"
+            android:padding="18dp"
+            android:textColorHint="#800080"
             />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="email"
             android:id="@+id/emailcontact"
+            android:padding="18dp"
+            android:textColorHint="#800080"
             />
         <EditText
             android:layout_width="match_parent"
@@ -46,6 +52,8 @@
             android:inputType="number"
             android:hint="Aadhaar no."
             android:id="@+id/aadharcontact"
+            android:padding="18dp"
+            android:textColorHint="#800080"
             />
         <EditText
             android:layout_width="match_parent"
@@ -53,24 +61,31 @@
             android:inputType="number"
             android:hint="Age"
             android:id="@+id/agecontact"
+            android:padding="18dp"
+            android:textColorHint="#800080"
             />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Blood Group"
             android:id="@+id/bloodgroupcontact"
+            android:padding="18dp"
+            android:textColorHint="#800080"
             />
 <EditText
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:hint="Write Symptoms that you notice in yourself"
     android:id="@+id/symptomscontact"
+    android:padding="18dp"
+    android:textColorHint="#800080"
     />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Choose a hopital to request"
             android:textSize="20sp"
+            android:padding="18dp"
             />
         <Spinner
             android:id="@+id/spinnercontact"
@@ -84,7 +99,9 @@
             android:hint="Create Password"
             android:inputType="textPassword"
             android:layout_margin="10dp"
-        />
+            android:padding="18dp"
+            android:textColorHint="#800080"
+            />
         <Button
             android:id="@+id/applycontact"
             android:layout_width="match_parent"

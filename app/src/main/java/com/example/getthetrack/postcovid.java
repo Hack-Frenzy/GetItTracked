@@ -103,12 +103,14 @@ public class postcovid extends AppCompatActivity {
                     myRef.child("aadharno").setValue(aadharNoget);
                     myRef.child("age").setValue(ageget);
                     myRef.child("bloodGroup").setValue(bloodget);
-                    myRef.child("request").setValue(request);
+                    String str = ((request).split(":"))[0].trim();
+                    myRef.child("request").setValue(str);
                     myRef.child("rr").setValue(0);
                     myRef.child("spo2").setValue(0);
                     myRef.child("avpu").setValue(0);
                     myRef.child("bp").setValue(0);
                     myRef.child("mews").setValue(0);
+                    myRef.child("uid").setValue(user.getUid().toString());
                     myRef.child("heartrate").setValue(0);
                     DatabaseReference myRefAccess = database.getReference().child("Access").child(user.getUid());
                     myRefAccess.child("hospital").setValue("postcovid");
@@ -130,6 +132,7 @@ public class postcovid extends AppCompatActivity {
                     ageget = age.getText().toString();
                     bloodget = blood.getText().toString();
                     if(!(emailId.equals("") || password.equals(""))){
+                        apply.setEnabled(false);
                         mAuth.createUserWithEmailAndPassword(emailId, password)
                                 .addOnCompleteListener(postcovid.this, new OnCompleteListener<AuthResult>() {
                                     @Override
@@ -170,7 +173,7 @@ public class postcovid extends AppCompatActivity {
                 int i = 0;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     hospiinfoispos hos = snapshot.getValue(hospiinfoispos.class);
-                    hospiname[i] = hos.name + " (" + hos.address + ")";
+                    hospiname[i] = hos.name + ": (" + hos.address + ")";
                     str.add(hos.name +" (" + hos.address+" )");
                     i++;
                 }
@@ -291,10 +294,19 @@ public class postcovid extends AppCompatActivity {
 
                                     Toast
                                             .makeText(getApplicationContext(),
-                                                    "Image Selected!! NOW CLICK UPLOAD",
+                                                    "Sign Up Completed",
                                                     Toast.LENGTH_LONG)
                                             .show();
                                     apply.setEnabled(true);
+
+                                    email.setText("");
+                                    pass.setText("");
+                                    phNo.setText("");
+                                    name.setText("");
+                                    aadharNo.setText("");
+                                    age.setText("");
+                                    blood.setText("");
+                                    finish();
                                 }
                             })
 
